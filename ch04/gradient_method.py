@@ -26,6 +26,15 @@ lr = 0.1
 step_num = 20
 x, x_history = gradient_descent(function_2, init_x, lr=lr, step_num=step_num)
 
+# 計算等高線
+x0 = np.arange(-5, 5, 0.1)
+x1 = np.arange(-5, 5, 0.1)
+X, Y = np.meshgrid(x0, x1)
+Z = X**2 + Y**2
+
+# 畫出等高線
+plt.contour(X, Y, Z, levels=10, colors='gray', linestyles='dashed')
+
 plt.plot( [-5, 5], [0,0], '--b')
 plt.plot( [0,0], [-5, 5], '--b')
 plt.plot(x_history[:,0], x_history[:,1], 'o')
